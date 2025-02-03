@@ -109,6 +109,17 @@ body {
     }
 }
 
+/* Linki w kolorze białym */
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* Ukryj kafelki na małych ekranach */
 @media (max-width: 768px) {
     .draggable-tile {
         display: none;

@@ -26,9 +26,19 @@ body {
     min-height: 600px;
 }
 
+.header a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.header a:hover {
+    opacity: 0.8;
+}
+
 /* Kafelki boczne */
 .static-tile {
-    background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+    background: var(--dark-green);
+    color: white;
     padding: 1.5rem;
     border-radius: 15px;
     position: absolute;
@@ -36,22 +46,12 @@ body {
     font-size: 18px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: all 0.5s;
+    transition: transform 0.3s;
     z-index: 2;
 }
 
 .static-tile:hover {
     transform: scale(1.05);
-}
-
-/* Wyśrodkowana zawartość nagłówka */
-.header-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    z-index: 3;
 }
 
 /* Sekcje */
@@ -64,7 +64,7 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Kafelki umiejętności */
+/* Umiejętności */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -77,6 +77,10 @@ body {
     padding: 1.5rem;
     border-radius: 10px;
     text-align: center;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s;
 }
 
@@ -84,44 +88,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* Przyciski */
-.btn-download {
-    background: var(--dark-green);
-    color: white;
-    padding: 1rem 2rem;
-    border-radius: 25px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 1rem;
-    transition: all 0.3s;
-}
-
-.btn-download:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Animacje */
-.animate-slide {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.6s ease-out forwards;
-}
-
-.animate-fade {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
-
-@keyframes slideUp {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
-/* Galeria zdjęć */
+/* Galeria */
 .gallery-container {
     position: relative;
     max-width: 800px;
@@ -155,12 +122,33 @@ body {
 .prev { left: 0; }
 .next { right: 0; }
 
-/* Sekcja AI - slider */
-.ai-comparison {
+/* Sekcja AI */
+.ai-slider-container {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
 }
+
+.ai-slider {
+    display: none;
+}
+
+.ai-slider.active {
+    display: block;
+}
+
+.before-label, .after-label {
+    position: absolute;
+    top: 20px;
+    padding: 5px 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 5px;
+    z-index: 20;
+}
+
+.before-label { left: 20px; }
+.after-label { right: 20px; }
 
 .image-container {
     position: relative;
@@ -200,35 +188,45 @@ body {
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-/* Strzałka półokrągła */
-.arrow-circle {
-    width: 40px;
-    height: 40px;
-    border: 2px solid white;
-    border-radius: 50%;
-    position: relative;
-    animation: pulse 1.5s infinite;
-}
-
-.arrow-circle::after {
-    content: "➔";
+.ai-arrow {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 1rem;
+    border: none;
+    cursor: pointer;
     font-size: 24px;
+    z-index: 30;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
-    100% { transform: scale(1); opacity: 1; }
+.ai-arrow.prev { left: 0; }
+.ai-arrow.next { right: 0; }
+
+/* Animacje */
+.animate-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-fade {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 /* Responsywność */
 @media (max-width: 768px) {
     .static-tile { display: none; }
-    .portfolio-tile { font-size: 18px; padding: 1rem 2rem; }
     .gallery-photo { height: 300px; }
     .image-container { height: 300px; }
     .slider::-webkit-slider-thumb { height: 300px; }

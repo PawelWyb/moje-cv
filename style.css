@@ -2,8 +2,18 @@
     --dark-green: #0d2a1a;
     --medium-green: #163723;
     --light-green: #2ecc71;
-    --background: #909090;
+    --background: #f5f5f5;
     --text-dark: #333;
+    --content-bg: #fff;
+    --dark-background: #1a1a1a;
+    --dark-text: #fff;
+    --dark-content-bg: #2d2d2d;
+}
+
+[data-theme="dark"] {
+    --background: var(--dark-background);
+    --text-dark: var(--dark-text);
+    --content-bg: var(--dark-content-bg);
 }
 
 body {
@@ -12,12 +22,46 @@ body {
     color: var(--text-dark);
     margin: 0;
     line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Białe panele */
+.content-panel {
+    background: var(--content-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin: 1rem 0;
+}
+
+/* Przycisk Dark Mode */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--light-green);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
 }
 
 /* Nagłówek */
 .header {
     background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
-    height: 80vh; /* Zmniejszona wysokość */
+    height: 80vh;
     position: relative;
     overflow: hidden;
     color: white;
@@ -25,11 +69,10 @@ body {
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Wyśrodkowanie pionowe */
-    align-items: center; /* Wyśrodkowanie poziome */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Białe linki */
 .header a {
     color: white !important;
     text-decoration: none;
@@ -78,7 +121,7 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 0 auto; /* Wyśrodkowanie zdjęcia */
+    margin: 0 auto;
     border: 3px solid white;
     background: url('assets/profile.jpg') center/cover;
 }
@@ -88,7 +131,7 @@ body {
     position: relative;
     z-index: 3;
     text-align: center;
-    margin-top: 2rem; /* Odstęp od zdjęcia */
+    margin-top: 2rem;
 }
 
 /* Sekcje */
@@ -105,7 +148,7 @@ body {
 }
 
 .skill-item, .course-item {
-    background: white;
+    background: var(--content-bg);
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -249,6 +292,14 @@ body {
     to { opacity: 1; }
 }
 
+/* Stopka */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--content-bg);
+    margin-top: 3rem;
+}
+
 /* Responsywność */
 @media (max-width: 768px) {
     .tile { display: none; }
@@ -256,4 +307,5 @@ body {
     .gallery-slide img { height: 300px; }
     .image-container { height: 300px; }
     .slider::-webkit-slider-thumb { height: 300px; }
+    .content-panel { padding: 1rem; }
 }

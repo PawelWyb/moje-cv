@@ -13,11 +13,27 @@ document.querySelector('.next').addEventListener('click', () => {
     slides.style.transform = `translateX(-${currentSlide * 100}%)`;
 });
 
-// Slider AI
-const slider = document.querySelector('.slider');
-const beforeImage = document.querySelector('.image-after');
+// Sekcja AI
+let currentSlider = 0;
+const sliders = document.querySelectorAll('.ai-slider');
+const totalSliders = sliders.length;
 
-slider.addEventListener('input', (e) => {
-    const sliderPos = e.target.value;
-    beforeImage.style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
+document.querySelector('.ai-arrow.prev').addEventListener('click', () => {
+    sliders[currentSlider].classList.remove('active');
+    currentSlider = (currentSlider > 0) ? currentSlider - 1 : totalSliders - 1;
+    sliders[currentSlider].classList.add('active');
+});
+
+document.querySelector('.ai-arrow.next').addEventListener('click', () => {
+    sliders[currentSlider].classList.remove('active');
+    currentSlider = (currentSlider < totalSliders - 1) ? currentSlider + 1 : 0;
+    sliders[currentSlider].classList.add('active');
+});
+
+document.querySelectorAll('.slider').forEach(slider => {
+    slider.addEventListener('input', (e) => {
+        const sliderPos = e.target.value;
+        const container = e.target.closest('.image-container');
+        container.querySelector('.image-after').style.clipPath = `inset(0 ${100 - sliderPos}% 0 0)`;
+    });
 });

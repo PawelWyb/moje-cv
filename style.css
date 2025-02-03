@@ -2,11 +2,19 @@
     --dark-green: #0d2a1a;
     --medium-green: #163723;
     --light-green: #1a3b2a;
+    --accent-green: #2ecc71;
     --background-color: #b2b2b2;
     --text-color: #333;
 }
 
-/* Nowy nagłówek */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
+
 .header {
     background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
     color: white;
@@ -17,17 +25,14 @@
     min-height: 600px;
 }
 
-.photo-placeholder {
-    height: 200px;
-    width: 200px;
-    background: rgba(255,255,255,0.1);
-    margin: 2rem auto;
-    border-radius: 50%;
-}
-
-/* Kafelki 50% większe */
+/* Animowany gradient na kafelkach */
 .static-tile {
-    background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+    background: linear-gradient(90deg, 
+        var(--dark-green) 0%, 
+        var(--light-green) 50%, 
+        var(--dark-green) 100%
+    );
+    background-size: 200% auto;
     padding: 1.5rem;
     border-radius: 15px;
     position: absolute;
@@ -35,65 +40,32 @@
     font-size: 18px;
     text-align: center;
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    transition: transform 0.3s;
+    transition: all 0.5s;
     z-index: 2;
 }
 
 .static-tile:hover {
+    background-position: 100% 0;
     transform: scale(1.05);
 }
 
-/* Wyśrodkowana zawartość */
-.header-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    z-index: 3;
-}
-
-/* Kafelek Portfolio */
-.portfolio-tile {
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, var(--medium-green), var(--light-green));
-    padding: 1.5rem 3rem;
-    border-radius: 25px;
-    font-size: 24px;
-    text-decoration: none;
-    color: white !important;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    transition: all 0.3s;
-    z-index: 4;
-}
-
-.portfolio-tile:hover {
-    box-shadow: 0 0 25px rgba(26, 59, 42, 0.5);
-}
-
-/* Animowana strzałka */
-.pulsing-arrow {
+/* Strzałka półokrągła */
+.arrow-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
     position: relative;
     animation: pulse 1.5s infinite;
 }
 
-.arrow-icon {
-    font-size: 32px;
-    filter: drop-shadow(0 0 5px white);
-}
-
-.click-text {
+.arrow-circle::after {
+    content: "➔";
     position: absolute;
-    left: 40px;
     top: 50%;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    font-size: 14px;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    font-size: 24px;
 }
 
 @keyframes pulse {
@@ -102,4 +74,20 @@
     100% { transform: scale(1); opacity: 1; }
 }
 
-/* Reszta styli pozostaje bez zmian */
+/* Reszta styli */
+.header a { color: white !important; }
+.photo-placeholder { height: 200px; width: 200px; background: rgba(255,255,255,0.1); margin: 2rem auto; border-radius: 50%; }
+.header-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; z-index: 3; }
+.portfolio-tile { position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%); background: var(--medium-green); padding: 1.5rem 3rem; border-radius: 25px; font-size: 24px; text-decoration: none; color: white; display: flex; align-items: center; gap: 1rem; transition: all 0.3s; z-index: 4; }
+.pulsing-arrow { position: relative; display: flex; align-items: center; gap: 10px; }
+.click-text { white-space: nowrap; font-size: 14px; }
+
+/* Sekcje */
+.section { padding: 3rem 2rem; max-width: 800px; margin: 2rem auto; background: rgba(255,255,255,0.9); border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; }
+.skill-item { background: var(--dark-green); color: white; padding: 1rem; border-radius: 5px; text-align: center; }
+
+@media (max-width: 768px) {
+    .static-tile { display: none; }
+    .portfolio-tile { font-size: 18px; padding: 1rem 2rem; }
+}

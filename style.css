@@ -7,13 +7,118 @@
     --text-color: #333;
 }
 
-/* ...wcześniejsze style... */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+}
 
-/* Nowa siatka 8 kafelków */
+/* Nagłówek */
+.header {
+    background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 600px;
+}
+
+/* Kafelki boczne */
+.static-tile {
+    background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+    padding: 1.5rem;
+    border-radius: 15px;
+    position: absolute;
+    width: 225px;
+    font-size: 18px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: all 0.5s;
+    z-index: 2;
+}
+
+.static-tile:hover {
+    transform: scale(1.05);
+}
+
+/* Wyśrodkowana zawartość nagłówka */
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 3;
+}
+
+/* Sekcje */
+.section {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Kafelki umiejętności */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
+}
+
+.skill-item {
+    background: var(--dark-green);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Przyciski */
+.btn-download {
+    background: var(--dark-green);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+    transition: all 0.3s;
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Animacje */
+.animate-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-fade {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 /* Galeria zdjęć */
@@ -93,4 +198,38 @@
     background: white;
     cursor: col-resize;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Strzałka półokrągła */
+.arrow-circle {
+    width: 40px;
+    height: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    position: relative;
+    animation: pulse 1.5s infinite;
+}
+
+.arrow-circle::after {
+    content: "➔";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    font-size: 24px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+    .static-tile { display: none; }
+    .portfolio-tile { font-size: 18px; padding: 1rem 2rem; }
+    .gallery-photo { height: 300px; }
+    .image-container { height: 300px; }
+    .slider::-webkit-slider-thumb { height: 300px; }
 }

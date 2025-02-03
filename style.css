@@ -19,7 +19,7 @@ body {
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     min-height: 300px;
 }
 
@@ -96,6 +96,16 @@ body {
     animation: fadeIn 1s ease-in forwards;
 }
 
+/* Białe linki w nagłówku */
+.header a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.header a:hover {
+    opacity: 0.8;
+}
+
 @keyframes slideUp {
     to {
         opacity: 1;
@@ -109,17 +119,6 @@ body {
     }
 }
 
-/* Linki w kolorze białym */
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a:hover {
-    opacity: 0.8;
-}
-
-/* Ukryj kafelki na małych ekranach */
 @media (max-width: 768px) {
     .draggable-tile {
         display: none;

@@ -10,16 +10,14 @@
 </head>
 <body>
     <header class="header">
-        <!-- Miejsce na zdjęcie (do dodania później) -->
         <div class="photo-placeholder"></div>
 
-        <!-- Statyczne kafelki (50% większe) -->
+        <!-- Kafelki boczne z animowanym gradientem -->
         <div class="static-tile" style="top: 15%; left: 5%">🚀 AUTOMATYZACJA</div>
         <div class="static-tile" style="top: 15%; right: 5%">🎨 GRAFIKA</div>
         <div class="static-tile" style="bottom: 25%; left: 5%">🤖 AI</div>
         <div class="static-tile" style="bottom: 25%; right: 5%">📈 LOGISTYKA</div>
 
-        <!-- Zawartość nagłówka (wyśrodkowana) -->
         <div class="header-content">
             <h1 class="animate-slide">Paweł Wybieralski</h1>
             <p class="subtitle animate-slide">Technik Logistyk | Grafik | Automatyzacja Procesów</p>
@@ -30,24 +28,49 @@
             </div>
         </div>
 
-        <!-- Interaktywny kafelek "Portfolio" -->
+        <!-- Nowa strzałka półokrągła -->
         <a href="#portfolio" class="portfolio-tile">
             PORTFOLIO
             <div class="pulsing-arrow">
-                <div class="arrow-icon">➔</div>
+                <div class="arrow-circle"></div>
                 <div class="click-text">Kliknij Mnie</div>
             </div>
         </a>
     </header>
 
-    <!-- Reszta sekcji pozostaje bez zmian -->
+    <!-- Sekcja "O mnie" -->
     <section class="section animate-fade">
         <h2>O mnie</h2>
-        <p>Absolwent Technikum nr 2 im. Tadeusza Rejtana w Rzeszowie...</p>
+        <p>Absolwent Technikum nr 2 im. Tadeusza Rejtana w Rzeszowie na kierunku Technik Logistyk. Specjalizuję się w grafice komputerowej, automatyzacji procesów w social mediach oraz wykorzystaniu technologii AI. Biegle posługuję się pakietem Adobe Creative Cloud (Photoshop, Illustrator), a także Microsoft Office.</p>
     </section>
 
-    <!-- ...pozostałe sekcje... -->
+    <!-- Sekcja "Umiejętności" -->
+    <section class="section animate-fade">
+        <h2>Umiejętności</h2>
+        <div class="skills-grid">
+            <div class="skill-item">Adobe Creative Cloud</div>
+            <div class="skill-item">Automatyzacja procesów</div>
+            <div class="skill-item">Microsoft Office</div>
+            <div class="skill-item">Język angielski (B1/B2)</div>
+            <div class="skill-item">AI w praktyce</div>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Sekcja "Doświadczenie" -->
+    <section class="section animate-fade">
+        <h2>Doświadczenie zawodowe</h2>
+        <div class="experience-item">
+            <h3>Przykładowa pozycja</h3>
+            <p class="date">2022 - Obecnie</p>
+            <p>Opis obowiązków i osiągnięć...</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#" class="btn-download"><i class="fas fa-download"></i> Pobierz CV (PDF)</a>
+            <a href="https://www.linkedin.com/in/pawe%C5%82-wybieralski-ab451b34a/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
 </body>
 </html>

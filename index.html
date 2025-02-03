@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Przycisk Dark Mode -->
+    <button id="themeToggle" class="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <!-- Nagłówek -->
     <header class="header">
         <div class="tile tile-1">🚀 AUTOMATYZACJA</div>
@@ -31,8 +36,10 @@
 
     <!-- Sekcje -->
     <section class="section animate-fade">
-        <h2>Podsumowanie</h2>
-        <p>Specjalista z dyplomem Technika Logistyka, pasjonat grafiki komputerowej i automatyzacji procesów z wykorzystaniem sztucznej inteligencji.</p>
+        <div class="content-panel">
+            <h2>Podsumowanie</h2>
+            <p>Specjalista z dyplomem Technika Logistyka, pasjonat grafiki komputerowej i automatyzacji procesów z wykorzystaniem sztucznej inteligencji.</p>
+        </div>
     </section>
 
     <section class="section animate-fade">
@@ -57,46 +64,50 @@
     </section>
 
     <section class="section animate-fade">
-        <h2>Galeria Projektów</h2>
-        <div class="gallery-container">
-            <div class="gallery-slide">
-                <img src="assets/project1.jpg" alt="Projekt 1">
-                <img src="assets/project2.jpg" alt="Projekt 2">
-                <img src="assets/project3.jpg" alt="Projekt 3">
+        <div class="content-panel">
+            <h2>Galeria Projektów</h2>
+            <div class="gallery-container">
+                <div class="gallery-slide">
+                    <img src="assets/project1.jpg" alt="Projekt 1">
+                    <img src="assets/project2.jpg" alt="Projekt 2">
+                    <img src="assets/project3.jpg" alt="Projekt 3">
+                </div>
+                <button class="gallery-btn prev">❮</button>
+                <button class="gallery-btn next">❯</button>
             </div>
-            <button class="gallery-btn prev">❮</button>
-            <button class="gallery-btn next">❯</button>
         </div>
     </section>
 
     <!-- Sekcja AI -->
     <section class="section animate-fade">
-        <h2>AI w Akcji</h2>
-        <div class="ai-slider-container">
-            <div class="ai-slide active">
-                <div class="image-container">
-                    <div class="before-label">PRZED</div>
-                    <div class="after-label">PO</div>
-                    <img src="assets/ai/before1.jpg" class="image-before" alt="Przed">
-                    <img src="assets/ai/after1.jpg" class="image-after" alt="Po">
-                    <input type="range" class="slider" min="0" max="100" value="50">
+        <div class="content-panel">
+            <h2>AI w Akcji</h2>
+            <div class="ai-slider-container">
+                <div class="ai-slide active">
+                    <div class="image-container">
+                        <div class="before-label">PRZED</div>
+                        <div class="after-label">PO</div>
+                        <img src="assets/ai/before1.JPG" class="image-before" alt="Przed">
+                        <img src="assets/ai/after1.jpg" class="image-after" alt="Po">
+                        <input type="range" class="slider" min="0" max="100" value="50">
+                    </div>
                 </div>
-            </div>
 
-            <div class="ai-slide">
-                <div class="image-container">
-                    <div class="before-label">PRZED</div>
-                    <div class="after-label">PO</div>
-                    <img src="assets/ai/before2.jpg" class="image-before" alt="Przed">
-                    <img src="assets/ai/after2.jpg" class="image-after" alt="Po">
-                    <input type="range" class="slider" min="0" max="100" value="50">
+                <div class="ai-slide">
+                    <div class="image-container">
+                        <div class="before-label">PRZED</div>
+                        <div class="after-label">PO</div>
+                        <img src="assets/ai/before2.JPG" class="image-before" alt="Przed">
+                        <img src="assets/ai/after2.jpg" class="image-after" alt="Po">
+                        <input type="range" class="slider" min="0" max="100" value="50">
+                    </div>
                 </div>
-            </div>
 
-            <button class="ai-arrow prev">❮</button>
-            <button class="ai-arrow next">❯</button>
+                <button class="ai-arrow prev">❮</button>
+                <button class="ai-arrow next">❯</button>
+            </div>
+            <p class="ai-description">Transformacja projektów z wykorzystaniem algorytmów AI</p>
         </div>
-        <p class="ai-description">Transformacja projektów z wykorzystaniem algorytmów AI</p>
     </section>
 
     <!-- Stopka -->

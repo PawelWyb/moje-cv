@@ -1,149 +1,105 @@
 :root {
-    --primary-color: #163723; 
-    --accent-color: #1a3b2a; 
-    --background-color: #b2b2b2; 
+    --dark-green: #0d2a1a;
+    --medium-green: #163723;
+    --light-green: #1a3b2a;
+    --background-color: #b2b2b2;
     --text-color: #333;
 }
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0;
-}
-
+/* Nowy nagłówek */
 .header {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
     color: white;
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 400px;
+    min-height: 600px;
 }
 
-/* Nowe kafelki z efektem gradientu */
+.photo-placeholder {
+    height: 200px;
+    width: 200px;
+    background: rgba(255,255,255,0.1);
+    margin: 2rem auto;
+    border-radius: 50%;
+}
+
+/* Kafelki 50% większe */
 .static-tile {
-    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
-    padding: 1rem;
-    border-radius: 10px;
+    background: linear-gradient(90deg, var(--dark-green), var(--light-green));
+    padding: 1.5rem;
+    border-radius: 15px;
     position: absolute;
-    user-select: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    width: 150px;
+    width: 225px;
+    font-size: 18px;
     text-align: center;
-    font-size: 14px;
-    z-index: 1;
-    transition: all 0.4s;
-    overflow: hidden;
-}
-
-/* Efekt animowanego gradientu */
-.static-tile::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255,255,255,0.2),
-        transparent
-    );
-    transform: rotate(45deg);
-    animation: gradientFlow 3s linear infinite;
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-.static-tile:hover::before {
-    opacity: 1;
-}
-
-@keyframes gradientFlow {
-    0% { transform: rotate(45deg) translateX(-50%); }
-    100% { transform: rotate(45deg) translateX(50%); }
-}
-
-.header-content {
-    position: relative;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
     z-index: 2;
 }
 
-.section {
-    padding: 3rem 2rem;
-    max-width: 800px;
-    margin: 2rem auto;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.static-tile:hover {
+    transform: scale(1.05);
 }
 
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+/* Wyśrodkowana zawartość */
+.header-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 3;
 }
 
-.skill-item {
-    background: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.btn-download {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.8rem 1.5rem;
+/* Kafelek Portfolio */
+.portfolio-tile {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--medium-green), var(--light-green));
+    padding: 1.5rem 3rem;
     border-radius: 25px;
+    font-size: 24px;
     text-decoration: none;
-    transition: transform 0.3s;
-}
-
-.btn-download:hover {
-    transform: translateY(-3px);
-}
-
-.animate-slide {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: slideUp 0.6s ease-out forwards;
-}
-
-.animate-fade {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
-
-.header a {
     color: white !important;
-    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+    z-index: 4;
 }
 
-.header a:hover {
-    opacity: 0.8;
+.portfolio-tile:hover {
+    box-shadow: 0 0 25px rgba(26, 59, 42, 0.5);
 }
 
-@keyframes slideUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Animowana strzałka */
+.pulsing-arrow {
+    position: relative;
+    animation: pulse 1.5s infinite;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-    }
+.arrow-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 0 5px white);
 }
 
-@media (max-width: 768px) {
-    .static-tile {
-        display: none;
-    }
+.click-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-size: 14px;
 }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Reszta styli pozostaje bez zmian */

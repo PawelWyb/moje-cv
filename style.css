@@ -23,6 +23,10 @@ body {
     color: white;
     text-align: center;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowanie pionowe */
+    align-items: center; /* Wyśrodkowanie poziome */
 }
 
 /* Białe linki */
@@ -74,19 +78,17 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 1rem auto; /* Mniejszy margines */
+    margin: 0 auto; /* Wyśrodkowanie zdjęcia */
     border: 3px solid white;
     background: url('assets/profile.jpg') center/cover;
 }
 
 /* Zawartość nagłówka */
 .header-content {
-    position: absolute;
-    top: 50%; /* Wyśrodkowanie */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
+    position: relative;
     z-index: 3;
+    text-align: center;
+    margin-top: 2rem; /* Odstęp od zdjęcia */
 }
 
 /* Sekcje */

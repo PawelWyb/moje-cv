@@ -20,28 +20,52 @@ body {
     text-align: center;
     position: relative;
     overflow: hidden;
-    min-height: 300px;
+    min-height: 400px;
 }
 
-.draggable-tile {
+/* Nowe kafelki z efektem gradientu */
+.static-tile {
     background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
     padding: 1rem;
     border-radius: 10px;
     position: absolute;
-    cursor: grab;
     user-select: none;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s, box-shadow 0.2s;
     width: 150px;
     text-align: center;
     font-size: 14px;
     z-index: 1;
+    transition: all 0.4s;
+    overflow: hidden;
 }
 
-.draggable-tile:active {
-    cursor: grabbing;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    transform: scale(1.02);
+/* Efekt animowanego gradientu */
+.static-tile::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255,255,255,0.2),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: gradientFlow 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.static-tile:hover::before {
+    opacity: 1;
+}
+
+@keyframes gradientFlow {
+    0% { transform: rotate(45deg) translateX(-50%); }
+    100% { transform: rotate(45deg) translateX(50%); }
 }
 
 .header-content {
@@ -96,7 +120,6 @@ body {
     animation: fadeIn 1s ease-in forwards;
 }
 
-/* Białe linki w nagłówku */
 .header a {
     color: white !important;
     text-decoration: none;
@@ -120,7 +143,7 @@ body {
 }
 
 @media (max-width: 768px) {
-    .draggable-tile {
+    .static-tile {
         display: none;
     }
 }

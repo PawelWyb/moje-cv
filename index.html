@@ -10,14 +10,14 @@
 </head>
 <body>
     <header class="header">
+        <!-- Zdjęcie i kafelki -->
         <div class="photo-placeholder"></div>
-
-        <!-- Kafelki boczne -->
         <div class="static-tile" style="top: 15%; left: 5%">🚀 AUTOMATYZACJA</div>
         <div class="static-tile" style="top: 15%; right: 5%">🎨 GRAFIKA</div>
         <div class="static-tile" style="bottom: 25%; left: 5%">🤖 AI</div>
         <div class="static-tile" style="bottom: 25%; right: 5%">📈 LOGISTYKA</div>
 
+        <!-- Nagłówek -->
         <div class="header-content">
             <h1 class="animate-slide">Paweł Wybieralski</h1>
             <p class="subtitle animate-slide">Technik Logistyk | Grafik | Automatyzacja Procesów</p>
@@ -28,13 +28,10 @@
             </div>
         </div>
 
-        <a href="#portfolio" class="portfolio-tile">
-            PORTFOLIO
-            <div class="pulsing-arrow">
-                <div class="arrow-circle"></div>
-                <div class="click-text">Kliknij Mnie</div>
-            </div>
-        </a>
+        <!-- Napis zamiast kafelka -->
+        <div class="portfolio-text">
+            <h3>Zobacz moje portfolio</h3>
+        </div>
     </header>
 
     <!-- Sekcja: Podsumowanie -->
@@ -43,7 +40,7 @@
         <p>Specjalizuję się w łączeniu logistyki z nowoczesnymi technologiami. Moje projekty wykorzystują AI do automatyzacji procesów i optymalizacji workflow.</p>
     </section>
 
-    <!-- Sekcja: Umiejętności (8 kafelków) -->
+    <!-- Sekcja: Umiejętności -->
     <section class="section animate-fade">
         <h2>Umiejętności</h2>
         <div class="skills-grid">
@@ -68,12 +65,11 @@
         </div>
     </section>
 
-    <!-- Sekcja: Galeria zdjęć -->
+    <!-- Sekcja: Galeria -->
     <section class="section animate-fade">
         <h2>Galeria projektów</h2>
         <div class="gallery-container">
             <div class="gallery-slide">
-                <!-- Tutaj dodaj swoje 4 zdjęcia -->
                 <img src="assets/photo1.jpg" class="gallery-photo" alt="Projekt 1">
                 <img src="assets/photo2.jpg" class="gallery-photo" alt="Projekt 2">
                 <img src="assets/photo3.jpg" class="gallery-photo" alt="Projekt 3">
@@ -84,17 +80,36 @@
         </div>
     </section>
 
-    <!-- Sekcja: AI - Możliwości -->
+    <!-- Sekcja: AI -->
     <section class="section animate-fade">
         <h2>AI - Możliwości sztucznej inteligencji</h2>
-        <div class="ai-comparison">
-            <div class="image-container">
-                <img src="assets/before.JPG" class="image-before" alt="Przed">
-                <img src="assets/after.jpg" class="image-after" alt="Po">
-                <input type="range" class="slider" min="0" max="100" value="50">
+        <div class="ai-slider-container">
+            <!-- Slider 1 -->
+            <div class="ai-slider active">
+                <div class="image-container">
+                    <div class="before-label">PRZED</div>
+                    <div class="after-label">PO</div>
+                    <img src="assets/before1.JPG" class="image-before" alt="Przed">
+                    <img src="assets/after1.jpg" class="image-after" alt="Po">
+                    <input type="range" class="slider" min="0" max="100" value="50">
+                </div>
             </div>
-            <p>Technologie AI pozwalają przekształcać zwykłe projekty w profesjonalne realizacje. Dzięki algorytmom machine learning optymalizuję czas pracy nawet o 70%.</p>
+
+            <!-- Slider 2 -->
+            <div class="ai-slider">
+                <div class="image-container">
+                    <div class="before-label">PRZED</div>
+                    <div class="after-label">PO</div>
+                    <img src="assets/before2.JPG" class="image-before" alt="Przed">
+                    <img src="assets/after2.jpg" class="image-after" alt="Po">
+                    <input type="range" class="slider" min="0" max="100" value="50">
+                </div>
+            </div>
+
+            <button class="ai-arrow prev">❮</button>
+            <button class="ai-arrow next">❯</button>
         </div>
+        <p class="ai-description">Technologie AI pozwalają przekształcać zwykłe projekty w profesjonalne realizacje. Dzięki algorytmom machine learning optymalizuję czas pracy nawet o 70%.</p>
     </section>
 
     <footer class="footer">

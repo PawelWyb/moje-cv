@@ -17,12 +17,22 @@ body {
 /* Nagłówek */
 .header {
     background: linear-gradient(135deg, var(--dark-green), var(--medium-green));
-    height: 100vh;
+    height: 80vh; /* Zmniejszona wysokość */
     position: relative;
     overflow: hidden;
     color: white;
     text-align: center;
     padding: 2rem;
+}
+
+/* Białe linki */
+.header a {
+    color: white !important;
+    text-decoration: none;
+}
+
+.header a:hover {
+    opacity: 0.8;
 }
 
 /* Kafelki */
@@ -64,9 +74,19 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 2rem auto;
+    margin: 1rem auto; /* Mniejszy margines */
     border: 3px solid white;
     background: url('assets/profile.jpg') center/cover;
+}
+
+/* Zawartość nagłówka */
+.header-content {
+    position: absolute;
+    top: 50%; /* Wyśrodkowanie */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    z-index: 3;
 }
 
 /* Sekcje */

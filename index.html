@@ -21,7 +21,10 @@
         <div class="envelope-modal">
             <div class="modal-content">
                 <span class="close-modal" onclick="toggleEnvelope()">&times;</span>
-                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                <video controls>
+                    <source src="assets/videos/moj-film.mp4" type="video/mp4">
+                    Twoja przeglądarka nie obsługuje plików wideo.
+                </video>
                 <div class="modal-text">
                     <h3>Moja Historia</h3>
                     <p>Tutaj znajdziesz więcej informacji o mojej ścieżce zawodowej i osiągnięciach...</p>
@@ -82,6 +85,22 @@
                 <div class="course-item">Kwalifikacja SPL.01. Obsługa Magazynów</div>
                 <div class="course-item">Kwalifikacja SPL.04. Organizacja transportu</div>
                 <div class="course-item">Kurs automatyzacji i pisania promptów AI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sekcja Galerii -->
+    <section class="section animate-fade">
+        <div class="content-panel">
+            <h2>Przykładowe Prace</h2>
+            <div class="gallery-container">
+                <div class="gallery-slide">
+                    <img src="assets/project1.jpg" alt="Projekt 1">
+                    <img src="assets/project2.jpg" alt="Projekt 2">
+                    <img src="assets/project3.jpg" alt="Projekt 3">
+                </div>
+                <button class="gallery-btn prev">❮</button>
+                <button class="gallery-btn next">❯</button>
             </div>
         </div>
     </section>

@@ -1,5 +1,5 @@
 // Particles.js Configuration
-particlesJS('particles-js', {
+const particlesConfig = {
     particles: {
         number: { 
             value: 80, 
@@ -10,40 +10,22 @@ particlesJS('particles-js', {
         },
         color: { value: "#2ecc71" },
         shape: { type: "circle" },
-        opacity: {
-            value: 0.5,
-            random: false
-        },
-        size: {
-            value: 3,
-            random: true
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            random: false,
-            straight: false,
-            out_mode: "out",
-            bounce: false
-        }
+        opacity: { value: 0.5 },
+        size: { value: 3, random: true },
+        move: { enable: true, speed: 2, direction: "none" }
     },
     interactivity: {
         detect_on: "canvas",
         events: {
-            onhover: {
-                enable: true,
-                mode: "repulse"
-            },
-            onclick: {
-                enable: true,
-                mode: "push"
-            },
+            onhover: { enable: true, mode: "repulse" },
+            onclick: { enable: true, mode: "push" },
             resize: true
         }
     },
     retina_detect: true
-});
+};
+
+particlesJS('particles-js', particlesConfig);
 
 // Animowane teksty w nagłówku
 const typedName = new Typed('#typed-name', {
@@ -68,6 +50,9 @@ function toggleTheme() {
     body.setAttribute('data-theme', isDark ? 'light' : 'dark');
     themeToggle.innerHTML = isDark ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    
+    // Wymuszamy aktualizację cząsteczek
+    particlesJS('particles-js', particlesConfig);
 }
 
 // Efekt paralaksy

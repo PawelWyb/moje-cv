@@ -48,10 +48,7 @@ const body = document.body;
 function toggleTheme() {
     const isDark = body.getAttribute('data-theme') === 'dark';
     body.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    themeToggle.innerHTML = isDark ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
     localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    
-    // Wymuszamy aktualizację cząsteczek
     particlesJS('particles-js', particlesConfig);
 }
 
@@ -138,19 +135,25 @@ function initializeTheme() {
     const savedTheme = localStorage.getItem('theme') || 
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
     body.setAttribute('data-theme', savedTheme);
-    themeToggle.innerHTML = savedTheme === 'dark' 
-        ? '<i class="fas fa-sun"></i>' 
-        : '<i class="fas fa-moon"></i>';
 }
 
-// Nowe funkcje dla Chatbota AI
+// Automatyczne otwarcie czatu
+function initChatbot() {
+    const chatWindow = document.querySelector('.chatbot-window');
+    chatWindow.classList.add('active');
+    addChatMessage('Cześć! Jestem Agentem AI stworzonym przez Pawła! Zadaj mi pytanie, a chętnie na nie odpowiem!');
+}
+
+// Modyfikacja funkcji toggleChatbot
 function toggleChatbot() {
     const chatWindow = document.querySelector('.chatbot-window');
-    const isVisible = chatWindow.style.display === 'flex';
-    chatWindow.style.display = isVisible ? 'none' : 'flex';
-    if (!isVisible) document.getElementById('userMessage').focus();
+    chatWindow.classList.toggle('active');
+    if (chatWindow.classList.contains('active')) {
+        document.getElementById('userMessage').focus();
+    }
 }
 
+// Dodawanie wiadomości do czatu
 function addChatMessage(text, isUser = false) {
     const chatMessages = document.getElementById('chatMessages');
     const messageDiv = document.createElement('div');
@@ -160,6 +163,7 @@ function addChatMessage(text, isUser = false) {
     chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
+// Obsługa wysyłania wiadomości
 async function handleUserMessage() {
     const userInput = document.getElementById('userMessage');
     const message = userInput.value.trim();
@@ -181,10 +185,11 @@ async function handleUserMessage() {
     }
 }
 
-// Inicjalizacja czatu
+// Start aplikacji
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     themeToggle.addEventListener('click', toggleTheme);
+    initChatbot(); // Dodane automatyczne otwarcie
     
     document.getElementById('sendMessage').addEventListener('click', handleUserMessage);
     document.getElementById('userMessage').addEventListener('keypress', (e) => {

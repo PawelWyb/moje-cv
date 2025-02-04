@@ -13,6 +13,23 @@
 <body>
     <div id="particles-js"></div>
     
+    <!-- Panel koperty -->
+    <div class="envelope-container">
+        <div class="envelope-icon" onclick="toggleEnvelope()">
+            <i class="fas fa-envelope"></i>
+        </div>
+        <div class="envelope-modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="toggleEnvelope()">&times;</span>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                <div class="modal-text">
+                    <h3>Moja Historia</h3>
+                    <p>Tutaj znajdziesz więcej informacji o mojej ścieżce zawodowej i osiągnięciach...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Przycisk Dark Mode -->
     <button id="themeToggle" class="theme-toggle">
         <i class="fas fa-moon"></i>
@@ -21,13 +38,12 @@
     <!-- Nagłówek -->
     <header class="header">
         <div class="parallax-layer" data-depth="0.1"></div>
-        
         <div class="profile-photo"></div>
 
         <div class="header-content animate-slide">
             <h1 id="typed-name"></h1>
             <p class="subtitle" id="typed-subtitle"></p>
-            <div class="contact-info" id="typed-contacts">
+            <div class="contact-info">
                 <a href="mailto:pawelwybieralski04@wp.pl"><i class="fas fa-envelope"></i></a>
                 <a href="tel:+48570870022"><i class="fas fa-phone"></i></a>
                 <a href="https://www.linkedin.com/in/pawe%C5%82-wybieralski-ab451b34a/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -70,21 +86,6 @@
         </div>
     </section>
 
-    <section class="section animate-fade">
-        <div class="content-panel">
-            <h2>Galeria Projektów</h2>
-            <div class="gallery-container">
-                <div class="gallery-slide">
-                    <img src="assets/project1.jpg" alt="Projekt 1">
-                    <img src="assets/project2.jpg" alt="Projekt 2">
-                    <img src="assets/project3.jpg" alt="Projekt 3">
-                </div>
-                <button class="gallery-btn prev">❮</button>
-                <button class="gallery-btn next">❯</button>
-            </div>
-        </div>
-    </section>
-
     <!-- Sekcja AI -->
     <section class="section animate-fade">
         <div class="content-panel">
@@ -99,7 +100,6 @@
                         <input type="range" class="slider" min="0" max="100" value="50">
                     </div>
                 </div>
-
                 <div class="ai-slide">
                     <div class="image-container">
                         <div class="before-label">PRZED</div>
@@ -109,11 +109,27 @@
                         <input type="range" class="slider" min="0" max="100" value="50">
                     </div>
                 </div>
-
+                <div class="ai-slide">
+                    <div class="image-container">
+                        <div class="before-label">PRZED</div>
+                        <div class="after-label">PO</div>
+                        <img src="assets/ai/before3.jpg" class="image-before" alt="Przed">
+                        <img src="assets/ai/after3.jpg" class="image-after" alt="Po">
+                        <input type="range" class="slider" min="0" max="100" value="50">
+                    </div>
+                </div>
+                <div class="ai-slide">
+                    <div class="image-container">
+                        <div class="before-label">PRZED</div>
+                        <div class="after-label">PO</div>
+                        <img src="assets/ai/before4.jpg" class="image-before" alt="Przed">
+                        <img src="assets/ai/after4.jpg" class="image-after" alt="Po">
+                        <input type="range" class="slider" min="0" max="100" value="50">
+                    </div>
+                </div>
                 <button class="ai-arrow prev">❮</button>
                 <button class="ai-arrow next">❯</button>
             </div>
-            <p class="ai-description">Transformacja projektów z wykorzystaniem algorytmów AI</p>
         </div>
     </section>
 

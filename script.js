@@ -1,4 +1,4 @@
-// Inicjalizacja Particles.js
+// Particles.js Configuration
 particlesJS('particles-js', {
     particles: {
         number: { 
@@ -127,6 +127,25 @@ document.querySelectorAll('.slider').forEach(slider => {
         container.querySelector('.image-after').style.clipPath = 
             `inset(0 ${100 - sliderPos}% 0 0)`;
     });
+});
+
+// Panel koperty
+function toggleEnvelope() {
+    const modal = document.querySelector('.envelope-modal');
+    const body = document.body;
+    if (modal.style.display === 'block') {
+        modal.style.display = 'none';
+        body.style.overflow = 'auto';
+    } else {
+        modal.style.display = 'block';
+        body.style.overflow = 'hidden';
+    }
+}
+
+document.querySelector('.envelope-modal').addEventListener('click', (e) => {
+    if (e.target === document.querySelector('.envelope-modal')) {
+        toggleEnvelope();
+    }
 });
 
 // Inicjalizacja motywu

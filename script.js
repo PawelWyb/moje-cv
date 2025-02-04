@@ -143,8 +143,54 @@ function initializeTheme() {
         : '<i class="fas fa-moon"></i>';
 }
 
-// Start aplikacji
+// Nowe funkcje dla Chatbota AI
+function toggleChatbot() {
+    const chatWindow = document.querySelector('.chatbot-window');
+    const isVisible = chatWindow.style.display === 'flex';
+    chatWindow.style.display = isVisible ? 'none' : 'flex';
+    if (!isVisible) document.getElementById('userMessage').focus();
+}
+
+function addChatMessage(text, isUser = false) {
+    const chatMessages = document.getElementById('chatMessages');
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `chat-message ${isUser ? 'user-message' : 'bot-message'}`;
+    messageDiv.textContent = text;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+async function handleUserMessage() {
+    const userInput = document.getElementById('userMessage');
+    const message = userInput.value.trim();
+    if (!message) return;
+
+    const loader = document.querySelector('.chat-header .loader');
+    loader.classList.remove('hidden');
+    addChatMessage(message, true);
+    userInput.value = '';
+
+    try {
+        const response = await puter.ai.chat(message);
+        addChatMessage(response);
+    } catch (error) {
+        console.error('Błąd AI:', error);
+        addChatMessage('Przepraszam, wystąpił błąd. Spróbuj ponownie.');
+    } finally {
+        loader.classList.add('hidden');
+    }
+}
+
+// Inicjalizacja czatu
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     themeToggle.addEventListener('click', toggleTheme);
+    
+    document.getElementById('sendMessage').addEventListener('click', handleUserMessage);
+    document.getElementById('userMessage').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            handleUserMessage();
+        }
+    });
 });

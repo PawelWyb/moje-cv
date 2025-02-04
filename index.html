@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 <body>
+    <div id="particles-js"></div>
+    
     <!-- Przycisk Dark Mode -->
     <button id="themeToggle" class="theme-toggle">
         <i class="fas fa-moon"></i>
@@ -16,50 +20,53 @@
 
     <!-- Nagłówek -->
     <header class="header">
-        <div class="tile tile-1">🚀 AUTOMATYZACJA</div>
-        <div class="tile tile-2">🎨 GRAFIKA</div>
-        <div class="tile tile-3">🤖 AI</div>
-        <div class="tile tile-4">📈 LOGISTYKA</div>
-
+        <div class="parallax-layer" data-depth="0.1"></div>
+        
         <div class="profile-photo"></div>
 
         <div class="header-content animate-slide">
-            <h1>Paweł Wybieralski</h1>
-            <p class="subtitle">Technik Logistyk | Specjalista AI</p>
-            <div class="contact-info">
-                <a href="mailto:pawelwybieralski04@wp.pl"><i class="fas fa-envelope"></i> Email</a>
-                <a href="tel:+48570870022"><i class="fas fa-phone"></i> +48 570 870 022</a>
-                <a href="https://www.linkedin.com/in/pawe%C5%82-wybieralski-ab451b34a/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <h1 id="typed-name"></h1>
+            <p class="subtitle" id="typed-subtitle"></p>
+            <div class="contact-info" id="typed-contacts">
+                <a href="mailto:pawelwybieralski04@wp.pl"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+48570870022"><i class="fas fa-phone"></i></a>
+                <a href="https://www.linkedin.com/in/pawe%C5%82-wybieralski-ab451b34a/" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
     </header>
 
     <!-- Sekcje -->
     <section class="section animate-fade">
-        <div class="content-panel">
+        <div class="content-panel summary">
             <h2>Podsumowanie</h2>
-            <p>Specjalista z dyplomem Technika Logistyka, pasjonat grafiki komputerowej i automatyzacji procesów z wykorzystaniem sztucznej inteligencji.</p>
+            <p>Młody grafik komputerowy i manager mediów społecznościowych z zamiłowaniem do nowoczesnych rozwiązań – tak można mnie opisać. Ukończyłem technikum logistyczne, a podstawowa wiedza w obsłudze Microsoft Office pozwala mi skutecznie realizować zadania. Śledzę rozwój technologii, szczególnie w dziedzinie sztucznej inteligencji i automatyzacji, co nadaje moim projektom świeże spojrzenie. Choć jestem na początku swojej drogi zawodowej, ambicja i energia sprawiają, że każda inicjatywa nabiera dynamicznego wymiaru.</p>
         </div>
     </section>
 
     <section class="section animate-fade">
-        <h2>Umiejętności</h2>
-        <div class="skills-grid">
-            <div class="skill-item">Adobe Creative Suite</div>
-            <div class="skill-item">Automatyzacja Workflow</div>
-            <div class="skill-item">Microsoft Office</div>
-            <div class="skill-item">Podstawy Programowania</div>
-            <div class="skill-item">Zarządzanie Projektami</div>
-            <div class="skill-item">Analiza Danych</div>
+        <div class="content-panel">
+            <h2>Umiejętności</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Grafik Komputerowy</div>
+                <div class="skill-item">Microsoft Office</div>
+                <div class="skill-item">Analiza Danych</div>
+                <div class="skill-item">Angielski B1/B2</div>
+                <div class="skill-item">Social Media Assistant</div>
+                <div class="skill-item">Logistyk</div>
+                <div class="skill-item">Pasjonat AI</div>
+                <div class="skill-item">Automatyzacja Procesów</div>
+            </div>
         </div>
     </section>
 
     <section class="section animate-fade">
-        <h2>Kursy</h2>
-        <div class="courses-list">
-            <div class="course-item">AI Fundamentals (Udemy)</div>
-            <div class="course-item">Graphic Design Masterclass (Coursera)</div>
-            <div class="course-item">Logistics Management (LinkedIn Learning)</div>
+        <div class="content-panel">
+            <h2>Kursy</h2>
+            <div class="courses-list">
+                <div class="course-item">Kwalifikacja SPL.01. Obsługa Magazynów</div>
+                <div class="course-item">Kwalifikacja SPL.04. Organizacja transportu</div>
+                <div class="course-item">Kurs automatyzacji i pisania promptów AI</div>
+            </div>
         </div>
     </section>
 
@@ -87,7 +94,7 @@
                     <div class="image-container">
                         <div class="before-label">PRZED</div>
                         <div class="after-label">PO</div>
-                        <img src="assets/ai/before1.JPG" class="image-before" alt="Przed">
+                        <img src="assets/ai/before1.jpg" class="image-before" alt="Przed">
                         <img src="assets/ai/after1.jpg" class="image-after" alt="Po">
                         <input type="range" class="slider" min="0" max="100" value="50">
                     </div>
@@ -97,7 +104,7 @@
                     <div class="image-container">
                         <div class="before-label">PRZED</div>
                         <div class="after-label">PO</div>
-                        <img src="assets/ai/before2.JPG" class="image-before" alt="Przed">
+                        <img src="assets/ai/before2.jpg" class="image-before" alt="Przed">
                         <img src="assets/ai/after2.jpg" class="image-after" alt="Po">
                         <input type="range" class="slider" min="0" max="100" value="50">
                     </div>

@@ -43,8 +43,8 @@ body {
 }
 
 .envelope-icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     background: var(--light-green);
     border-radius: 50%;
     display: flex;
@@ -53,10 +53,13 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     transition: transform 0.3s;
+    animation: pulse 2s infinite ease-in-out;
 }
 
-.envelope-icon:hover {
-    transform: scale(1.1);
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
 }
 
 .envelope-modal {
@@ -106,25 +109,57 @@ body {
 /* Dark Mode */
 .theme-toggle {
     position: fixed;
-    bottom: 30px;
+    top: 30px;
     right: 30px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 60px;
+    height: 34px;
+    border-radius: 34px;
     background: var(--light-green);
     border: none;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    transition: transform 0.3s;
+    transition: all 0.3s;
 }
 
-.theme-toggle:hover {
-    transform: scale(1.1);
+.theme-toggle i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: white;
+    transition: opacity 0.3s;
+}
+
+.theme-toggle .fa-moon {
+    left: 8px;
+}
+
+.theme-toggle .fa-sun {
+    right: 8px;
+    opacity: 0;
+}
+
+.theme-toggle .slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+[data-theme="dark"] .theme-toggle .slider {
+    transform: translateX(26px);
+}
+
+[data-theme="dark"] .theme-toggle .fa-moon {
+    opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .fa-sun {
+    opacity: 1;
 }
 
 /* Nagłówek */
@@ -416,8 +451,16 @@ h1 {
     background: var(--content-bg);
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    display: none;
+    display: flex;
     flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.chatbot-window.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .chat-header {

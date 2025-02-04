@@ -137,20 +137,13 @@ function initializeTheme() {
     body.setAttribute('data-theme', savedTheme);
 }
 
-// Automatyczne otwarcie czatu
+// Automatyczne otwarcie czatu po 10 sekundach
 function initChatbot() {
-    const chatWindow = document.querySelector('.chatbot-window');
-    chatWindow.classList.add('active');
-    addChatMessage('Cześć! Jestem Agentem AI stworzonym przez Pawła! Zadaj mi pytanie, a chętnie na nie odpowiem!');
-}
-
-// Modyfikacja funkcji toggleChatbot
-function toggleChatbot() {
-    const chatWindow = document.querySelector('.chatbot-window');
-    chatWindow.classList.toggle('active');
-    if (chatWindow.classList.contains('active')) {
-        document.getElementById('userMessage').focus();
-    }
+    setTimeout(() => {
+        const chatWindow = document.querySelector('.chatbot-window');
+        chatWindow.classList.add('active');
+        addChatMessage('Cześć! Jestem Agentem AI stworzonym przez Pawła! Zadaj mi pytanie, a chętnie na nie odpowiem!');
+    }, 10000); // 10000 ms = 10 sekund
 }
 
 // Dodawanie wiadomości do czatu
@@ -189,7 +182,7 @@ async function handleUserMessage() {
 document.addEventListener('DOMContentLoaded', () => {
     initializeTheme();
     themeToggle.addEventListener('click', toggleTheme);
-    initChatbot(); // Dodane automatyczne otwarcie
+    initChatbot(); // Automatyczne otwarcie czatu po 10 sekundach
     
     document.getElementById('sendMessage').addEventListener('click', handleUserMessage);
     document.getElementById('userMessage').addEventListener('keypress', (e) => {

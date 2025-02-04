@@ -157,6 +157,26 @@
         <p>© 2024 Paweł Wybieralski | Wszystkie prawa zastrzeżone</p>
     </footer>
 
+    <!-- ChatBot AI -->
+    <div class="chatbot-container">
+        <div class="chatbot-icon" onclick="toggleChatbot()">
+            <i class="fas fa-robot"></i>
+        </div>
+        <div class="chatbot-window">
+            <div class="chat-header">
+                <h3>AI Asystent</h3>
+                <div class="loader hidden"></div>
+                <button class="close-chat" onclick="toggleChatbot()">&times;</button>
+            </div>
+            <div class="chat-messages" id="chatMessages"></div>
+            <div class="chat-input">
+                <input type="text" id="userMessage" placeholder="Napisz wiadomość...">
+                <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://js.puter.com/v2/"></script>
     <script src="script.js"></script>
 </body>
 </html>
